@@ -210,7 +210,7 @@ async def set_key_plain(client, message):
     if not await ensure_joined(client, message): return
     token = message.text.strip().split()[0]
     if not token.startswith("AIz"):
-        await message.reply_text("Invalid key 🙅🏻", quote=True)
+        await message.reply_text("❌", quote=True)
         return
     prev = get_user_key_db(message.from_user.id)
     set_user_key_db(message.from_user.id, token)
