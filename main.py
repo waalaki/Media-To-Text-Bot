@@ -187,10 +187,10 @@ async def send_welcome(client, message):
         
         main_kb = ReplyKeyboardMarkup(
             [
-                ["/mode", "/help"]
+               # ["/mode", "/help"]
             ],
             resize_keyboard=True,
-            placeholder="Send audio or video"
+            placeholder="Send link 🔗"
         )
         
         await message.reply_text(welcome_text, reply_markup=main_kb, quote=True)
