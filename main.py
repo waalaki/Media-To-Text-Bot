@@ -190,7 +190,7 @@ async def send_welcome(client, message):
                 ["/mode", "/help"]
             ],
             resize_keyboard=True,
-            placeholder="Send link 🔗 or media..."
+            placeholder="Send audio or video"
         )
         
         await message.reply_text(welcome_text, reply_markup=main_kb, quote=True)
