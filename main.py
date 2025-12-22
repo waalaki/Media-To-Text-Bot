@@ -276,7 +276,7 @@ async def handle_media(client, message):
         return
     user_key = get_user_key_db(message.from_user.id)
     if not user_key:
-        await message.reply_text("first send me Gemini key 🤓", quote=True)
+        await message.reply_text("first send me Gemini key 🤓 go to 👉🏻 https://aistudio.google.com/api-keys", quote=True)
         try:
             if REQUIRED_CHANNEL:
                 me = await client.get_me()
