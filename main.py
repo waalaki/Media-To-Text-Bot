@@ -131,7 +131,7 @@ def upload_and_transcribe_gemini(file_path: str, key: str, uid: int, mime_type: 
         uploaded_file = client.files.upload(file=file_path, config={'mime_type': mime_type})
         
         if mime_type and mime_type.startswith("image"):
-            prompt = "Analyze this image. If it contains text, transcribe it exactly as it appears. If it does not contain text, describe the image in detail."
+            prompt = "Extract and write ONLY the text visible in this image. If no text exists, write an error message"
         else:
             prompt = "Transcribe this audio Write a text that is accurate and of high quality and does not look like raw ASR text. Do not add intro phrases."
             
