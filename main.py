@@ -329,7 +329,7 @@ async def handle_media(client, message):
             sent = await send_long_text(client, message.chat.id, text, message.id, message.from_user.id)
             if sent:
                 user_transcriptions.setdefault(message.chat.id, {})[sent.id] = {"text": text, "origin": message.id}
-                if len(text) > 500:
+                if len(text) > 1500:
                     await client.edit_message_reply_markup(message.chat.id, sent.id, reply_markup=build_action_keyboard(len(text)))
     except Exception as e:
         await message.reply_text(f"❌ Error: {e}", quote=True)
