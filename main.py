@@ -189,7 +189,7 @@ async def send_welcome(client, message):
                 ["Change Result mode 🐥"]
             ],
             resize_keyboard=True,
-            placeholder="Send Audio or Video"
+            placeholder="Message"
         )
         await message.reply_text(welcome_text, reply_markup=main_kb, quote=True)
 
