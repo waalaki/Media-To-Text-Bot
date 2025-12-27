@@ -130,7 +130,7 @@ def upload_and_transcribe_gemini(file_path: str, key: str, uid: int) -> str:
     uploaded_file = None
     try:
         uploaded_file = client.files.upload(file=file_path)
-        prompt = "Transcribe this audio Write a text that is accurate and of high quality and does not look like raw ASR text. Do not add intro phrases."
+        prompt = "Transcribe the audio in this file Provide a clean text that does not look like raw STT. Return ONLY the transcription text, no preamble or extra commentary"
         current_model = get_current_model(uid)
         response = client.models.generate_content(model=current_model, contents=[prompt, uploaded_file])
         return response.text
@@ -151,7 +151,7 @@ def ask_gemini(text, instruction, key, uid):
 
 def build_action_keyboard(text_len):
     btns = []
-    if text_len > 1500:
+    if text_len > 2000:
         btns.append([InlineKeyboardButton("Get Summarize", callback_data="summarize_menu|")])
     return InlineKeyboardMarkup(btns)
 
@@ -307,7 +307,7 @@ async def handle_media(client, message):
             sent = await send_long_text(client, message.chat.id, text, message.id, message.from_user.id)
             if sent:
                 user_transcriptions.setdefault(message.chat.id, {})[sent.id] = {"text": text, "origin": message.id}
-                if len(text) > 1500:
+                if len(text) > 2000:
                     await client.edit_message_reply_markup(message.chat.id, sent.id, reply_markup=build_action_keyboard(len(text)))
     except Exception as e:
         await message.reply_text(f"❌ Error: {e}", quote=True)
