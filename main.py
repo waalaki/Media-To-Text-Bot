@@ -183,7 +183,7 @@ async def ensure_joined(client, message):
 @app.on_message(filters.command(["start", "help"]))
 async def send_welcome(client, message):
     if await ensure_joined(client, message):
-        welcome_text = "👋 Salaam!\n• Send me\n• voice message\n• audio file\n• video\n• to transcribe for free"
+        welcome_text = "👋 Salaam!\n• Send me\n• voice message\n• audio file\n• video\n• to transcribe for free for any problem report https://t.me/osiy3"
         main_kb = ReplyKeyboardMarkup(
             [
                 ["Change Result mode 🐥"]
