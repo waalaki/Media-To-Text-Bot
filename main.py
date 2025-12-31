@@ -133,7 +133,7 @@ def upload_and_transcribe_gemini(file_path: str, key: str, uid: int) -> str:
     uploaded_file = None
     try:
         uploaded_file = client.files.upload(file=file_path)
-        prompt = "Transcribe the audio in this file Provide a clean text that does not look like raw STT. Return ONLY the transcription text, no preamble or extra commentary"
+        prompt = "Transcribe this audio Return ONLY the final cleaned transcription no preamble, no commentary"
         current_model = get_current_model(uid)
         response = client.models.generate_content(model=current_model, contents=[prompt, uploaded_file])
         return response.text
