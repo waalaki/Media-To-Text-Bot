@@ -177,7 +177,7 @@ def set_key_plain(message):
         return
     prev = get_user_key_db(message.from_user.id)
     set_user_key_db(message.from_user.id, token)
-    msg = "API key updated." if prev else "Key saved send audio or video"
+    msg = "API key updated." if prev else "Okay send me audio or video 👍"
     bot.reply_to(message, msg)
 
 @bot.callback_query_handler(func=lambda c: c.data and c.data.startswith('lang|'))
