@@ -166,7 +166,7 @@ def ensure_joined(message):
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     if ensure_joined(message):
-        welcome_text = "👋 Salaam!\n• Send voice, audio, video or document to transcribe using Gemini AI\nSend your Gemini API key as a message starting with AIz"
+        welcome_text = "👋 Salaam!\n• Send me\n• voice message\n• audio file\n• video\n• to transcribe for free for any problem report https://t.me/osiy3"
         kb = build_lang_keyboard("file")
         bot.reply_to(message, welcome_text, reply_markup=kb)
 
