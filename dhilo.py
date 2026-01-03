@@ -177,7 +177,7 @@ def set_key_plain(message):
         return
     prev = get_user_key_db(message.from_user.id)
     set_user_key_db(message.from_user.id, token)
-    msg = "API key updated." if prev else "Key saved. Now send audio or video"
+    msg = "API key updated." if prev else "Key saved send audio or video"
     bot.reply_to(message, msg)
 
 @bot.callback_query_handler(func=lambda c: c.data and c.data.startswith('lang|'))
@@ -232,7 +232,7 @@ def gemini_api_call(endpoint, payload, key):
 def transcribe_media_gemini(file_url, mime_type, language_code, uid):
     key = get_user_key_db(uid)
     if not key:
-        raise RuntimeError("No Gemini key configured. Send your key starting with AIz")
+        raise RuntimeError("first send me Gemini key 🤓")
     file_content = requests.get(file_url, timeout=REQUEST_TIMEOUT_GEMINI).content
     b64_data = base64.b64encode(file_content).decode('utf-8')
     prompt = """
