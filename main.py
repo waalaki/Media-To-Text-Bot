@@ -285,7 +285,7 @@ async def _progress_updater(client, chat_id, reply_to, future, label="Processing
 
 @app.on_message(filters.command(["start", "help"]))
 async def send_welcome(client, message):
-    welcome_text = "👋 Salaam!\n• Send me\n• voice message\n• audio file\n• video\n• to transcribe for free for any problem report https://t.me/osiy3"
+    welcome_text = "👋 Salaam!\n• Send me\n• voice message\n• audio file\n• video\n• to transcribe for free for any problem report https://t.me/orlaki"
     main_kb = ReplyKeyboardMarkup([["Change Result mode 🐥"]], resize_keyboard=True, placeholder="Message")
     await message.reply_text(welcome_text, reply_markup=main_kb, quote=True)
 
