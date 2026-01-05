@@ -4,3 +4,9 @@ pymongo
 requests
 google-genai
 flask
+pyTelegramBotAPI
+Flask
+pymongo
+google-generativeai
+requests
+dnspython
