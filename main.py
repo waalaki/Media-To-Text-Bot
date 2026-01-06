@@ -126,7 +126,17 @@ def upload_and_transcribe_gemini(file_path: str, key: str, uid: int) -> str:
     uploaded_file = None
     try:
         uploaded_file = client.files.upload(file=file_path)
-        prompt = "Transcribe this audio Write a text that is accurate and of high quality and does not look like raw ASR text. Do not add intro phrases."
+        prompt = """Transcribe the audio accurately in its original language.
+
+Formatting rules:
+- Preserve the original meaning exactly
+- Add proper punctuation
+- Split the text into short, readable paragraphs
+- Each paragraph should represent one clear idea
+- Avoid long blocks of text
+- Remove filler words only if meaning is unchanged
+- Do NOT summarize
+- Do NOT add explanations"""
         current_model = get_current_model(uid)
         response = client.models.generate_content(model=current_model, contents=[prompt, uploaded_file])
         return response.text
