@@ -214,7 +214,7 @@ def fake_progress_updater(chat_id, reply_to, stop_event, label="Processing"):
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    welcome_text = "👋 Salaam!\n• Send me\n• voice message\n• audio file\n• video\n• to transcribe for free"
+    welcome_text = "👋 Salaam!\n• Send me\n• voice message\n• audio file\n• video\n• Get Text for free\n\n 💎 devloper by @orlaki "
     bot.reply_to(message, welcome_text)
 
 @bot.message_handler(commands=['mode'])
